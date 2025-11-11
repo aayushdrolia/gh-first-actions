@@ -1,0 +1,31 @@
+name: Deploy workflow
+on: push
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5.0.0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.0.0
+        with: 
+          node-version: 22
+      - name: Install Dependencies
+        run: echo "npm install"
+      - name: Run Tests
+        run: echo "npm run test"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v5.0.0
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v6.0.0
+        with: 
+          node-version: 22
+      - name: Install Dependencies
+        run: echo "npm install"
+      - name: Build Project
+        run: echo "npm run build"
+      - name: Deploy
+        run: echo "Deploying"
