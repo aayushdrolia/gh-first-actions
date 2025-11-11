@@ -1,0 +1,20 @@
+name: Verify Pull Request
+on: 
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+jobs:
+  build-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: echo "npm run build"
+  test:
+    needs: build-validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        run: echo "npm run test"
+        
+      
